@@ -61,8 +61,8 @@ class Response<T> {
 }
 
 Future<String> bodyBytesToString(
-    Stream<List<int>> bodyBytes, Map<String, String> headers) {
-  return bodyBytes.bytesToString(_encodingForHeaders(headers));
+    Stream<List<int>> bodyBytes, Map<String, String> headers, [Encoding? fallback]) {
+  return bodyBytes.bytesToString(fallback ?? _encodingForHeaders(headers));
 }
 
 /// Returns the encoding to use for a response with the given headers.

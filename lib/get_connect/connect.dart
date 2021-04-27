@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../get_instance/src/lifecycle.dart';
 import 'http/src/certificates/certificates.dart';
 import 'http/src/exceptions/exceptions.dart';
@@ -105,6 +107,7 @@ class GetConnect extends GetConnectInterface {
   String userAgent;
   String? baseUrl;
   String defaultContentType = 'application/json; charset=utf-8';
+  Encoding? defaultResponseEncoding;
   bool followRedirects;
   int maxRedirects;
   int maxAuthRetries;
@@ -127,6 +130,7 @@ class GetConnect extends GetConnectInterface {
         allowAutoSignedCert: allowAutoSignedCert,
         baseUrl: baseUrl,
         trustedCertificates: trustedCertificates,
+        defaultResponseEncoding: defaultResponseEncoding
       );
 
   @override

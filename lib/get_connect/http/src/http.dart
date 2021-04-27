@@ -37,6 +37,8 @@ class GetHttpClient {
 
   final GetModifier _modifier;
 
+  Encoding? defaultResponseEncoding;
+
   GetHttpClient({
     this.userAgent = 'getx-client',
     this.timeout = const Duration(seconds: 8),
@@ -45,6 +47,7 @@ class GetHttpClient {
     this.maxAuthRetries = 1,
     bool allowAutoSignedCert = false,
     this.baseUrl,
+    this.defaultResponseEncoding,
     List<TrustedCertificate>? trustedCertificates,
   })  : _httpClient = HttpRequestImpl(
           allowAutoSignedCert: allowAutoSignedCert,

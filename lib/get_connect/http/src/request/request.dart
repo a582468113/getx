@@ -33,6 +33,8 @@ class Request<T> {
 
   final FormData? files;
 
+  final Encoding? responseEncoding;
+
   const Request._({
     required this.method,
     required this.bodyBytes,
@@ -44,6 +46,7 @@ class Request<T> {
     required this.files,
     required this.persistentConnection,
     required this.decoder,
+    this.responseEncoding
   });
 
   factory Request({
@@ -57,6 +60,7 @@ class Request<T> {
     FormData? files,
     bool persistentConnection = true,
     Decoder<T>? decoder,
+    Encoding? responseEncoding
   }) {
     if (followRedirects) {
       assert(maxRedirects > 0);
@@ -72,6 +76,7 @@ class Request<T> {
       files: files,
       persistentConnection: persistentConnection,
       decoder: decoder,
+      responseEncoding: responseEncoding
     );
   }
 }
